@@ -1,14 +1,12 @@
 var express = require('express');
 var router = express.Router();
-const indexController = require('../controllers/indexController');
+const productController = require('../controllers/productController');
 
-router.get('/product', function(req, res, next) {
-    res.render('product', { title: 'Product' });
-  });
+router.get('/', productController.product);
 
-router.get('/product-add', function(req, res, next) {
-    res.render('product-add', { title: 'Product-add' });
-  });
+router.get('/product-add', productController.productAdd);
+
+router.get('/search-results',productController.searchResults )
 
 
 module.exports = router;
