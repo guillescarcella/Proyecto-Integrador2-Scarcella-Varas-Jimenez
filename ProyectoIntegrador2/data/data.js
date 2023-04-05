@@ -1,5 +1,12 @@
 const data= {
-    usuario:[],
+    usuario: {
+        usuario: '',
+        contrasena:''
+    },
     productos: [],
-    comentarios:[]
+    comentarios:{
+        usuario: '',
+        comentario:'',
+        imagen:''
+    }
 }
