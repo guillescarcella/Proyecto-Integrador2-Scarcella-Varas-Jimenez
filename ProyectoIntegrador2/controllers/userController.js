@@ -1,3 +1,5 @@
+const data = require('../data/data')
+
 const userController={
     register: function(req, res) {
         return res.render('register');
@@ -8,7 +10,7 @@ const userController={
       },
 
     profile: function(req, res) {
-        return res.render('profile');
+        return res.render('profile', {usuario: data.usuario});
       },
 
     profileEdit: function(req, res) {

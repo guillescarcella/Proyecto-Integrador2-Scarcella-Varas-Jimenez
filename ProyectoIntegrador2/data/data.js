@@ -1,7 +1,7 @@
 const data= {
     usuario: {
-        usuario: '',
-        contrasena:''
+        nombre: 'g',
+        contrasena:'gh'
     },
     productos: [],
     comentarios:{
@@ -10,3 +10,5 @@ const data= {
         imagen:''
     }
 }
+
+module.exports=data
