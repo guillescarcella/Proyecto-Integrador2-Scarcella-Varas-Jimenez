@@ -14,7 +14,7 @@ const userController={
       },
 
     profileEdit: function(req, res) {
-        return res.render('profile-edit');
+        return res.render('profile-edit', {usuario: data.usuario});
       }
 }
 module.exports = userController

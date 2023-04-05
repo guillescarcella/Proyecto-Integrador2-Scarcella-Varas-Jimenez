@@ -3,7 +3,15 @@ const data= {
         nombre: 'g',
         contrasena:'gh'
     },
-    productos: [],
+    productos: [
+        {
+            imagen: 'ruta a imagen',
+            nombre:'',
+            descripcion: '',
+            fecha: 20/01/2023
+        }
+    ],
+    
     comentarios:{
         usuario: '',
         comentario:'',
