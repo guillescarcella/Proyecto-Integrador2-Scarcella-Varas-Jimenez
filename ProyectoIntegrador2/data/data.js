@@ -71,15 +71,36 @@ const data= {
     ],
     
     comentarios:[{
-        usuario: 'mery',
-        comentario:'Hola sos lo mas',
-        imagen:'/images/users/default-image.png'
+        usuario: 'delfijimenez_',
+        comentario:'Cuanto dura el producto?',
+        imagen:'/images/users/user.png'
     },
     {
-        usuario: '',
-        comentario:'',
-        imagen:''
+        usuario: 'meryvaras',
+        comentario:'Lo tienen en otro tono?',
+        imagen:'/images/users/user.png'
     },
+    {
+        usuario: 'lolopico',
+        comentario:'Muy buen producto',
+        imagen:'/images/users/user.png'
+    },
+    {
+        usuario: 'guillescar',
+        comentario:'Tienen local a la calle?',
+        imagen:'/images/users/user.png'
+    },
+    {
+        usuario: 'meryvaras',
+        comentario:'Es un buen regalo?',
+        imagen:'/images/users/user.png'
+    },
+    {
+        usuario: 'pamerodriguez',
+        comentario:'No es la mejor marca',
+        imagen:'/images/users/user.png'
+    }
+
     ]
 }
 
