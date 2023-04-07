@@ -1,7 +1,7 @@
-const data=require('../data/data')
+const data= require('../data/data')
 const productController = {
     product: function(req, res) {
-        return res.render('product');
+        return res.render('product', {data: data.productos});
       },
     productAdd: function(req, res) {
         return res.render('product-add', {usuario: data.usuario});

@@ -9,63 +9,63 @@ const data= {
     },
     productos: [
         {
-            imagen: '/images/products/labial.jpg',
-            nombre:'Labial',
-            descripcion: 'Super brilloso!',
+            imagen: '/images/products/P1.png',
+            nombre:'Kit Mascara Essentials Estée Lauder',
+            descripcion: 'Destaca tu mirada con este set de Edición limitada.',
             fecha: '20/01/2023'
         },
         {
-            imagen: '/images/products/rimel.jpg',
-            nombre:'Rimel',
-            descripcion: 'Nueva formula',
+            imagen: '/images/products/P2.png',
+            nombre:'Mac Primped & Prepped Kit',
+            descripcion: 'Mantente resplandeciente con los productos de imprimación más vendidos para crear una base suave para looks de larga duración.',
             fecha: '20/02/2023'
         },
         {
-            imagen: '/images/products/lapiz.jpg',
-            nombre:'Lapiz',
-            descripcion: 'Delinea tus labios!',
+            imagen: '/images/products/P3.png',
+            nombre:'Set X4 Mascarillas Faciales En Tela Aines Beauty 15g C/u',
+            descripcion: 'Tratamiento revitalizador, antioxidante y energizante, imprescindible para completar tu rutina facial en casa. ',
             fecha: '10/03/2023'
         },
         {
-            imagen: '/images/products/base.jpg',
-            nombre:'Base',
-            descripcion: 'Ponele color a tu cara',
+            imagen: '/images/products/P4.png',
+            nombre:'Dermaglós Combo Rutina De Limpieza Facial Para Piel Normal',
+            descripcion: 'El combo Dermaglós Limpieza para Piel Normal está compuesto por 3 productos específicamente seleccionados para desmaquillar, limpiar y eliminar impurezas de la piel.',
             fecha: '10/04/2023'
         },
         {
-            imagen: '/images/products/broncer.jpg',
-            nombre:'Broncer',
-            descripcion: 'Defini tus pomulos',
+            imagen: '/images/products/P5.png',
+            nombre:'Clinique Set Daily Routine Piel Mixta A Grasa',
+            descripcion: '¡El kit mas completo para tu tipo de piel!',
             fecha: '10/05/2023'
         },
         {
-            imagen: '/images/products/Iluminador.jpg',
-            nombre:'Iluminador',
-            descripcion: 'Iluniate',
+            imagen: '/images/products/P6.png',
+            nombre: 'Paco Rabanne Olympéa EDP 50 ml',
+            descripcion: 'Respaldado por décadas de memorables fragancias que llevan su nombre, Paco Rabanne afirma una identidad distintiva resultante de la síntesis del diseño contemporáneo de vanguardia y la artesanía radical.',
             fecha: '10/06/2023'
         },
         {
-            imagen: '/images/products/brochas.jpg',
-            nombre:'Brocha',
-            descripcion: 'Nuevo set de brochas',
+            imagen: '/images/products/P7.png',
+            nombre:'Set Golden Hour Favs Set Ed. Limitada Bobbi Brown',
+            descripcion: 'Long-Wear Cream Shadow Stick Golden Pink',
             fecha: '10/07/2023'
         },
         {
-            imagen: '/images/products/paleta.jpg',
-            nombre:'Paleta',
-            descripcion: 'Muchos colores para tus ojos',
+            imagen: '/images/products/P8.png',
+            nombre:'Clinique Decorated Pop Set',
+            descripcion: 'Deja los labios con acabados mate llenos de color que se sienten cómodos.',
             fecha: '10/08/2023'
         },
         {
-            imagen: '/images/products/pintalabios.jpg',
-            nombre:'Pinta labios',
-            descripcion: 'Nuevo rojo intenso',
+            imagen: '/images/products/P9.png',
+            nombre:'Máscara De Pestañas Volumen Rimmel Thrill Seeker',
+            descripcion: 'Volumen atrevido para emocionar, longitud que desafía la gravedad y definición ingrávida.',
             fecha: '10/09/2023'
         },
         {
-            imagen: '/images/products/peineDeCejas.jpg',
-            nombre:'Peine de cejas',
-            descripcion: 'Dale forma a tus cejas',
+            imagen: '/images/products/P10.png',
+            nombre:'Labial Maybelline Matte Ink SuperStay color front runner',
+            descripcion: 'Para el día o la noche, con un nude delicado o un rojo vibrante, viví el color sin necesidad de retoques.',
             fecha: '10/10/2023'
         },
     ],
