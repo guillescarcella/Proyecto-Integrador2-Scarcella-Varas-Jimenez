@@ -8,6 +8,12 @@ const productController = {
       },
     searchResults: function(req, res) {
         return res.render('search-results');
-      }
+      },
+  home: function (req, res){
+    res.render('data', {data: data.productos})
+  },
+
+
+
 }
 module.exports= productController
