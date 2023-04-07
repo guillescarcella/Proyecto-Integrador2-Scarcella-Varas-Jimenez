@@ -1,8 +1,8 @@
 const data= {
     usuario: {
-        nombre: 'g',
-        contrasena:'gh',
-        mail: 'mariavaras@hotmail.com',
+        nombre: 'Josefina',
+        contrasena:'Battaglia',
+        mail: 'josebattaglia@hotmail.com',
         fechaDeNacimiento: '10/08/2002',
         DNI: '44366344',
         fotoDePerfil: '/images/users/default-image.png'
@@ -63,7 +63,7 @@ const data= {
             fecha: '10/09/2023'
         },
         {
-            imagen: '/images/products/Peine de cejas.jpg',
+            imagen: '/images/products/peineDeCejas.jpg',
             nombre:'Peine de cejas',
             descripcion: 'Dale forma a tus cejas',
             fecha: '10/10/2023'
