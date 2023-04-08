@@ -10,7 +10,7 @@ const userController={
       },
 
     profile: function(req, res) {
-        return res.render('profile', {usuario: data.usuario});
+        return res.render('profile', {usuario: data.usuario, productos: data.productos});
       },
 
     profileEdit: function(req, res) {

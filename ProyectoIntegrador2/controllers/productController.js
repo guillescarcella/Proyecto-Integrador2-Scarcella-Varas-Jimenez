@@ -7,7 +7,7 @@ const productController = {
     }
     },
     product: function(req, res) {
-        return res.render('product', {data: data.productos});
+        return res.render('product', {product: data.productos[0], comentarios: data.comentarios});
       },
     productAdd: function(req, res) {
         return res.render('product-add', {usuario: data.usuario});
