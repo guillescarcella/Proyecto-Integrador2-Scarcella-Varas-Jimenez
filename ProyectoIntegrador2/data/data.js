@@ -5,7 +5,7 @@ const data= {
         mail: 'josebattaglia@hotmail.com',
         fechaDeNacimiento: '10/08/2002',
         DNI: '44366344',
-        fotoDePerfil: '/images/users/default-image.png'
+        fotoDePerfil: '/images/users/user.png'
     },
     productos: [
         {
