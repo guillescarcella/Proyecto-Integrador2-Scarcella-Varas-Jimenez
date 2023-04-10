@@ -8,7 +8,7 @@ const productController = {
         return res.render('product-add', {usuario: data.usuario});
       },
     searchResults: function(req, res) {
-        return res.render('search-results');
+        return res.render('search-results', {productSearch: data.productos[0], comentarios: data.comentarios});
       },
 
 

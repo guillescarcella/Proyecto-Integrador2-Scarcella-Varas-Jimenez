@@ -68,7 +68,8 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background: rgb(255,102,196);
+  background: linear-gradient(90deg, rgba(255,102,196,1) 0%, rgba(255,222,89,1) 100%);
 }
 
 .main-header_home-link,
