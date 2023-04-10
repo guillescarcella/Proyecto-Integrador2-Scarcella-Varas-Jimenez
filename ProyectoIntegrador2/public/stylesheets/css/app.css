@@ -10,7 +10,7 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'DM Sans', sans-serif
+  --base-font-family: 'DM Sans' , sans-serif
 }
 
 
@@ -42,8 +42,9 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  color:  inherit;
 }
+
 
 figure {
   margin: 0;
@@ -115,7 +116,7 @@ hr {
 
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
-  background-color: var(--dark-blue);
+  background-color: rgb(244, 15, 157);
   color: #ffffff;
   font-size: 1.5em;
   border: none;
@@ -144,7 +145,7 @@ hr {
 }
 
 .logout:hover{
-  color: #1259c3;
+  color: rgb(244, 15, 157);
 }
 
 .left-navbar a,
@@ -158,11 +159,11 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/bannerm.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 100px;
+
 }
 
 
@@ -177,10 +178,11 @@ hr {
   font-weight: 400;
   color: var(--gray);
   text-align: center;
+  font-family: 'Telegraf';
 }
 
 .product-box {
-  background-color: #ffffff;
+  background-color: rgb(244, 199, 227); 
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
@@ -207,6 +209,8 @@ hr {
   font-size: 2.4em;
   font-weight: 300;
   margin: 0;
+  color: #666666;
+  font-family: 'Telegraf';
 }
 
 .product-box_data span {
@@ -219,7 +223,7 @@ hr {
 .product-box_data p {
   font-size: 1.5em;
   width: 100%;
-  color: var(--gray);
+  color: rgb(244, 15, 157); ;
   margin: 0;
   height: 0;
   transition: 300ms;
@@ -227,7 +231,7 @@ hr {
 }
 
 .product-box_data i {
-  color: var(--green);
+  color: rgb(244, 15, 157); ;
   font-size: 1.8em;
   width: 35px;
   height: 35px;
@@ -249,7 +253,8 @@ hr {
 }
 
 .product-box:hover {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px  rgb(244, 15, 157); 
+
 }
 
 .product-box:hover p {
@@ -259,7 +264,7 @@ hr {
 
 .product-box:hover i {
   transform: rotate(360deg);
-  box-shadow: 0 0 5px var(--green);
+  box-shadow: 0 0 5px  rgb(244, 15, 157);
 }
 
 /*====== Footer ======*/
@@ -329,6 +334,7 @@ hr {
 .product-detail-title {
   font-weight: 400;
   font-size: 2.8em;
+  font-family: 'Telegraf';
 }
 
 .product-detail-description {
@@ -348,7 +354,7 @@ hr {
 }
 .small {
   font-size: 1.8em;
-  color: var(--green);
+  color: rgb(244, 15, 157);
 }
 
 .small span {
@@ -367,7 +373,7 @@ hr {
 }
 
 .actions-list i {
-  color: var(--green);
+  color: rgb(244, 15, 157);
   font-size: 2em;
   margin-right: 15px;
 }
@@ -386,6 +392,7 @@ hr {
   border-radius: 8px;
   border: none;
   margin-bottom: 15px;
+  font-family: 'Telegraf';
 }
 
 .action-button {
@@ -449,6 +456,7 @@ hr {
   padding: 15px;
   margin: auto;
   border-radius: 7%;
+
 }
 
 .checkbox{
@@ -478,7 +486,6 @@ hr {
   font-size: 1.5em;
   border-radius: 8px;
   border: none;
-  border: solid 1px var(--gray);
   padding: 0 15px;
 }
 
@@ -516,7 +523,9 @@ textarea.form-input {
   color: #fff;
 }
 
-
+@font-face { /** para agregar nuevas tipografías, descargamos en ttf y creamos carpeta */
+  font-family: Telegraf;
+  src: url(/tipografias/PPTelegraf-Regular.ttf);}
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
   .main-header_credit-link {
@@ -548,7 +557,8 @@ textarea.form-input {
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: var(--light-blue);
+    color: rgb(244, 15, 157);
+    }
   }
 
   .left-navbar li {
@@ -567,4 +577,3 @@ textarea.form-input {
     width: 95%;
     margin: auto;
   }
-}
