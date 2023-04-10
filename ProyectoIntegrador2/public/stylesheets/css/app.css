@@ -10,7 +10,7 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --base-font-family: 'DM Sans', sans-serif
 }
 
 
@@ -106,7 +106,7 @@ hr {
   background-color: #ffffff;
   border: none;
   border-left: solid 1px var(--light-gray);
-  color: var(--gray);
+  color: #ffffff;
   cursor: pointer;
 }
 
@@ -260,7 +260,8 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background: rgb(255,102,196);
+  background: linear-gradient(90deg, rgba(255,102,196,1) 0%, rgba(255,222,89,1) 100%);
   padding: 20px 0;
   margin-top: 80px;
 }
