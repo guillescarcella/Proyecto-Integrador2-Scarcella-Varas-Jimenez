@@ -70,7 +70,9 @@ hr {
   padding: 15px 0;
   background: rgb(255,102,196);
   background: linear-gradient(90deg, rgba(255,102,196,1) 0%, rgba(255,222,89,1) 100%);
+  color: white;
 }
+
 
 .main-header_home-link,
 .main-header_credit-link {
@@ -138,6 +140,7 @@ hr {
   border: 0px;
   cursor: pointer;
   font-size: 1em;
+  color: white;
 }
 
 .logout:hover{
@@ -173,6 +176,7 @@ hr {
   font-size: 2.4em;
   font-weight: 400;
   color: var(--gray);
+  text-align: center;
 }
 
 .product-box {
@@ -264,27 +268,31 @@ hr {
   background: linear-gradient(90deg, rgba(255,102,196,1) 0%, rgba(255,222,89,1) 100%);
   padding: 20px 0;
   margin-top: 80px;
+  
 }
 
 .footer-data {
   text-align: center;
+  
 }
 
 .footer-data i {
-  color: var(--light-blue);
   font-size: 3.5em;
+  color: rgb(244, 15, 157);
 }
 
 .footer-data h2 {
   color: var(--gray);
   font-size: 2.4em;
   font-weight: 400;
+  color: white;
 }
 
 .footer-data p {
   color: var(--gray);
   font-size: 1.5em;
   font-weight: 300;
+  color: white;
 }
 
 .sub-footer {
@@ -371,7 +379,7 @@ hr {
 }
 
 .buy-now-button {
-  background-color: var(--light-blue);
+  background-color: rgb(244, 15, 157);
   font-size: 1.6em;
   color: #ffffff;
   padding: 15px;
@@ -430,6 +438,36 @@ hr {
   display: inline-block;
   font-size: 1.6em;
   margin: 10px 0;
+  font-weight: 400;
+  color: var(--gray);
+}
+
+.formulario{
+  width: 500px;
+  background: rgb(255,102,196);
+  background: linear-gradient(90deg, rgba(255,102,196,1) 0%, rgba(255,222,89,1) 100%);
+  padding: 15px;
+  margin: auto;
+  border-radius: 7%;
+}
+
+.checkbox{
+  color: var(--gray);
+  font-size: 15px;
+}
+
+
+.form-boton{
+  width: 50%;
+  background-color: #8e8b8b;
+  padding: 10px;
+  color: white;
+  border-radius: 10%;
+  border: none;
+  margin: 10px 0px;
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 .form-input {
@@ -472,7 +510,7 @@ textarea.form-input {
 }
 
 .btn{
-  background-color: #1259c3;
+  background-color: rgb(244, 15, 157);
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
