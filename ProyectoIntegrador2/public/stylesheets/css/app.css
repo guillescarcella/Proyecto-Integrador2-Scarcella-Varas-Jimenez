@@ -109,7 +109,7 @@ hr {
   background-color: #ffffff;
   border: none;
   border-left: solid 1px var(--light-gray);
-  color: #ffffff;
+  color: rgb(244, 15, 157);
   cursor: pointer;
 }
 
@@ -470,7 +470,7 @@ hr {
   background-color: #8e8b8b;
   padding: 10px;
   color: white;
-  border-radius: 10%;
+  border-radius: 8px;
   border: none;
   margin: 10px 0px;
   font-size: 20px;
