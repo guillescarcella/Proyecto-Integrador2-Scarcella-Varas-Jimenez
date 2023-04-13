@@ -215,6 +215,7 @@ hr {
   margin: 0;
   color: #666666;
   font-family: 'Telegraf';
+  height: 160px;
 }
 
 .product-box_data span {
@@ -262,8 +263,8 @@ hr {
 }
 
 .product-box:hover p {
-  height: 36px;
-  margin-top: 15px;
+  height: 40px;
+  margin-top: 5px;
 }
 
 .product-box:hover i {
