@@ -65,6 +65,10 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
+.fas fa-cog{
+  color: rgb(244, 15, 157);
+}
+
 
 /*====== Main Header ======*/
 .main-header {
