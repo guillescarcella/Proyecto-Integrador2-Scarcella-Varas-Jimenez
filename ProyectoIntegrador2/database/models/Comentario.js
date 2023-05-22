@@ -2,21 +2,36 @@ module.exports = function (sequelize, dataTypes ) {
     let alias = "Comentario";
     let cols = {
         id: {
-            autoIncrement : true,
-            primaryKey : true,
-            type : dataTypes.INTEGER
+            autoIncrement: true,
+            primaryKey: true,
+            type: dataTypes.INTEGER
         },
-        name: {
-            type : dataTypes.STRING
+        texto:{
+            type: dataTypes.STRING(255)
+        },
+        idUser:{
+            type:dataTypes.INTEGER
+        },
+        idProduct:{
+            type:dataTypes.INTEGER
+        },
+        createdAt:{
+            type: dataTypes.DATE
+        },
+        updatedAt:{
+            type: dataTypes.DATE
+        },
+        deletedAt:{
+            type: dataTypes.DATE
         }
-  	}
+    }
 
     let config = {
-        tableName: "movies",
+        tableName: "comentarios", //nombre tabla
         timestamps: false,
         underscored: true
     }
     
-    let Movies = sequelize.define(alias, cols, config);
-    return Movies;
+    let Comentarios = sequelize.define(alias, cols, config);
+    return Comentarios;
 }

@@ -2,21 +2,45 @@ module.exports = function (sequelize, dataTypes ) {
     let alias = "Usuario";
     let cols = {
         id: {
-            autoIncrement : true,
-            primaryKey : true,
+            autoIncrement: true,
+            primaryKey: true,
+            type: dataTypes.INTEGER
+        },
+        email: {
+            type : dataTypes.STRING(255)
+        },
+        username: {
+            type : dataTypes.STRING(255)
+        },
+        contra:{
+            type : dataTypes.STRING(255)
+        },
+        foto:{
+            type : dataTypes.STRING(255)
+        },
+        fecha: {
+            type : dataTypes.DATE
+        },
+        dni:{
             type : dataTypes.INTEGER
         },
-        name: {
-            type : dataTypes.STRING
+        createdAt:{
+            type: dataTypes.DATE
+        },
+        updatedAt:{
+            type: dataTypes.DATE
+        },
+        deletedAt:{
+            type: dataTypes.DATE
         }
   	}
 
     let config = {
-        tableName: "movies",
+        tableName: "usuarios",
         timestamps: false,
         underscored: true
     }
     
-    let Movies = sequelize.define(alias, cols, config);
-    return Movies;
+    let Usuarios = sequelize.define(alias, cols, config);
+    return Usuarios;
 }
