@@ -41,6 +41,13 @@ module.exports = function (sequelize, dataTypes ) {
         underscored: true
     }
     
-    let Usuarios = sequelize.define(alias, cols, config);
-    return Usuarios;
+    let Usuario = sequelize.define(alias, cols, config);
+    Usuario.associate= function(models){
+        //Aca luis volvio a poner: Usuario.associate= function(models){} --> no se porque
+        Usuario.belongsTo(models.Producto,{
+            as: 'userRel',
+            foreignkey:'FkUserId'
+        });
+    }
+    return Usuario;
 }
