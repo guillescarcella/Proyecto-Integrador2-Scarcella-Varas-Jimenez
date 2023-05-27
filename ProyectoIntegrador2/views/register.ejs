@@ -1,49 +1,55 @@
 <%- include('./partials/head.ejs') %>
 
-<body>
-	<!-- Header -->
-	<%- include('./partials/headerIndex.ejs') %>
-	<!-- /Header -->
+	<body>
+		<!-- Header -->
+		<%- include('./partials/headerIndex.ejs') %>
+			<!-- /Header -->
 
-	
+
 			<div class="col-12">
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<!-- Formulario -->
-			<form action="/users/profile" method="GET" class="formulario">
-				<div>
-					<label for="mail" class="form-label"></label>
-					<input type="email" name="mail" value="" placeholder="Email*" class="form-input">
-				</div>
-				<div>
-					<label for="user" class="form-label"></label>
-					<input type="text" name="user" value="" placeholder="Usuario*" class="form-input">
-				</div>
-				<div>
-					<label for="contraseña" class="form-label"></label>
-					<input type="password" name="pass" value="" placeholder="Contraseña*" class="form-input">
-				</div>
-				<div>
-					<label for="fecha" class="form-label">Fecha de nacimiento:</label>
-					<input type="date" name="fecha" value="" placeholder="Fecha de nacimiento*" class="form-input">
-				</div>
-				<div>
-					<label for="documento" class="form-label"></label>
-					<input type="number" name="documento" value="" placeholder="DNI*" class="form-input">
-				</div>
-				<div>
-					<label for="foto" class="form-label">Foto de perfil:</label>
-					<input type="file" name="foto" value="" placeholder="Foto de perfil" class="form-input">
-				</div>
-				<div>
-					<button type="submit" class="form-boton">Registrarse</button> 
-				</div>
+			<form enctype=”multipart/form-data” action="/users/create" method="POST" class="formulario">
+				<% if (locals.errors){ %>
+					<p class="error">
+						<%= locals.errors.message %>
+					</p>
+					<% } %>
+						<div>
+							<label for="mail" class="form-label"></label>
+							<input type="email" name="mail" value="" placeholder="Email*" class="form-input">
+						</div>
+						<div>
+							<label for="user" class="form-label"></label>
+							<input type="text" name="user" value="" placeholder="Usuario*" class="form-input">
+						</div>
+						<div>
+							<label for="contraseña" class="form-label"></label>
+							<input type="password" name="pass" value="" placeholder="Contraseña*" class="form-input">
+						</div>
+						<div>
+							<label for="fecha" class="form-label">Fecha de nacimiento:</label>
+							<input type="date" name="fecha" value="" placeholder="Fecha de nacimiento*"
+								class="form-input">
+						</div>
+						<div>
+							<label for="documento" class="form-label"></label>
+							<input type="number" name="documento" value="" placeholder="DNI*" class="form-input">
+						</div>
+						<div>
+							<label for="foto" class="form-label">Foto de perfil:</label>
+							<input type="file" name="foto" value="" placeholder="Foto de perfil" class="form-input">
+						</div>
+						<div>
+							<button type="submit" class="form-boton">Registrarse</button>
+						</div>
 			</form>
 			<!-- Show the "ultimos" products -->
 
-	<!-- footer -->
-	<%- include('./partials/footer.ejs') %>
-	<!-- /footer -->
-</body>
+			<!-- footer -->
+			<%- include('./partials/footer.ejs') %>
+				<!-- /footer -->
+	</body>
 
-</html>
+	</html>
