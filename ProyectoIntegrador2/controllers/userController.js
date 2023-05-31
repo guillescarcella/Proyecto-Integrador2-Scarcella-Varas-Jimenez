@@ -65,6 +65,7 @@ const userController = {
   register: function (req, res) {
     return res.render('register');
   },
+  //hay que probar que funcione
 
 }
 module.exports = userController
