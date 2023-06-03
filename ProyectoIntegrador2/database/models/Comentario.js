@@ -9,10 +9,10 @@ module.exports = function (sequelize, dataTypes ) {
         texto:{
             type: dataTypes.STRING(255)
         },
-        idUser:{
+        FkUserId:{
             type:dataTypes.INTEGER
         },
-        idProduct:{
+        FkProductId:{
             type:dataTypes.INTEGER
         },
         createdAt:{
@@ -31,7 +31,16 @@ module.exports = function (sequelize, dataTypes ) {
         timestamps: false,
         underscored: true
     }
-    
-    let Comentarios = sequelize.define(alias, cols, config);
-    return Comentarios;
+    const Comentario = sequelize.define(alias, cols, config)
+        Comentario.associate = function(models){
+            Comentario.belongsTo(models.Usuario, {
+                as: 'usuario',
+                foreignkey:'FkUserId'
+            });
+            Comentario.belongsTo(models.Producto, {
+                as: 'producto',
+                foreignKey: 'FkProductId',
+            })
+        }
+        return Comentario
 }

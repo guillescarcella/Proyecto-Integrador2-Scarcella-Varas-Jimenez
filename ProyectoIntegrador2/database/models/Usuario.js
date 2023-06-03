@@ -38,16 +38,18 @@ module.exports = function (sequelize, dataTypes ) {
     let config = {
         tableName: "usuarios",
         timestamps: false,
-        underscored: false
     }
     
     let Usuario = sequelize.define(alias, cols, config);
     Usuario.associate= function(models){
-        //Aca luis volvio a poner: Usuario.associate= function(models){} --> no se porque
-      /*  Usuario.belongsTo(models.Producto,{
-            as: 'userRel',
-            foreignkey:'FkUserId'
-        }); /*/
+        Usuario.hasMany(models.Comentario, {
+            as: 'comentario',
+            foreignKey: 'FkUserId'
+        })
+        Usuario.hasMany(models.Producto, {
+            as: 'producto',
+            foreignKey: 'FkUserId'
+        })
     }
     return Usuario;
 }

@@ -2,21 +2,18 @@ module.exports = function (sequelize, dataTypes ) {
     let alias = "Producto";
     let cols = {
         id: {
-            autoIncrement : true,
-            primaryKey : true,
-            type : dataTypes.INTEGER
+            autoIncrement: true,
+            primaryKey: true,
+            type: dataTypes.INTEGER
         },
-        nombre: {
-            type : dataTypes.STRING(255)
+        nombre:{
+            type: dataTypes.STRING(255)
         },
         descripcion:{
-            type : dataTypes.STRING(255)
+            type: dataTypes.STRING(255)
         },
         foto:{
-            type : dataTypes.STRING(255)
-        },
-        idUser:{
-            type:dataTypes.INTEGER
+            type: dataTypes.STRING(255)
         },
         createdAt:{
             type: dataTypes.DATE
@@ -26,21 +23,27 @@ module.exports = function (sequelize, dataTypes ) {
         },
         deletedAt:{
             type: dataTypes.DATE
+        },
+        FkUserId:{
+            type: dataTypes.INTEGER
         }
   	}
 
     let config = {
         tableName: "productos",
         timestamps: false,
-        underscored: true
     }
     
     let Producto = sequelize.define(alias, cols, config);
     Producto.associate= function(models){
-        Producto.belongsTo(models.Producto,{
-            as: 'userRel',
+        Producto.belongsTo(models.Usuario,{
+            as: 'usuario',
             foreignkey:'FkUserId'
         });
+        Producto.hasMany(models.Comentario, {
+            as: 'comentario',
+            foreignKey: 'FkProductId'
+        })
     }
     return Producto;
 }
