@@ -3,7 +3,7 @@ const Productos = db.Producto;
 const indexController = {
     
   index: function (req, res) {
-        Productos.findAll({
+        /*Productos.findAll({
           limit: 5,
           order: [['createdAt', 'DESC']],
           include: [{association: 'comentario'},{association: 'usuario'}]
@@ -17,8 +17,9 @@ const indexController = {
           .catch(function (err) {
               console.log(err);
           })  
-          
+         */return res.send ("hola") 
   }
+  
 }
 
 module.exports = indexController

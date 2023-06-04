@@ -4,25 +4,33 @@ module.exports = function (sequelize, dataTypes ) {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
+            notNull: true
         },
         nombre:{
-            type: dataTypes.STRING(255)
+            type: dataTypes.STRING(255),
+            notNull: true
+
         },
         descripcion:{
-            type: dataTypes.STRING(255)
+            type: dataTypes.STRING(255),
+            notNull: true
         },
         foto:{
-            type: dataTypes.STRING(255)
+            type: dataTypes.STRING(255),
+            notNull: true
         },
         createdAt:{
-            type: dataTypes.DATE
+            type: dataTypes.DATE,
+            notNull: true
         },
         updatedAt:{
-            type: dataTypes.DATE
+            type: dataTypes.DATE,
+            notNull: true
         },
         deletedAt:{
-            type: dataTypes.DATE
+            type: dataTypes.DATE,
+            notNull: true
         },
         FkUserId:{
             type: dataTypes.INTEGER
@@ -31,7 +39,8 @@ module.exports = function (sequelize, dataTypes ) {
 
     let config = {
         tableName: "productos",
-        timestamps: false,
+        timestamps: true,
+        underscored: false
     }
     
     let Producto = sequelize.define(alias, cols, config);
@@ -42,7 +51,7 @@ module.exports = function (sequelize, dataTypes ) {
         });
         Producto.hasMany(models.Comentario, {
             as: 'comentario',
-            foreignKey: 'FkProductId'
+            foreignKey: 'FKUserId'
         })
     }
     return Producto;
