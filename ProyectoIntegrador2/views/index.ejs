@@ -19,13 +19,14 @@
 			<% for (let i = 0; i < 4; i++){ %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/products">
+					<a href="/products/product/<%=productos[i]%>">
 						<figure class="product-box_image">
 							<img src="<%= productos[i].foto %>" alt="<%= productos[i].nombre%>">
 						</figure>
 						<article class="product-box_data">
 							<h2><%= productos[i].nombre %></h2>
 							<p><%= productos[i].descripcion %></p>
+							<p>Publicado por: <strong><a href="/users/profile/<%=productos[i].FkUserId.id%>"></a><%-productos[i].FkUserId.username%></strong></p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
@@ -45,7 +46,7 @@
 			<% for (let i = 0; i < 4; i++){ %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/products">
+					<a href="/products/product/<%=productos[i]%>">
 						<figure class="product-box_image">
 							<img src="<%= productos[i].foto %>" alt="<%= productos[i].nombre%>">
 						</figure>
