@@ -41,16 +41,17 @@ module.exports = function (sequelize, dataTypes ) {
         underscored: false
     }
     
-    let Usuario = sequelize.define(alias, cols, config);
+    const Usuario = sequelize.define(alias, cols, config);
     Usuario.associate= function(models){
-        Usuario.hasMany(models.Comentario, {
+        Usuario.hasMany(models.Producto, {
+            as: 'FkUser',
+            foreignKey: 'FkUserId'
+        })
+        /*Usuario.hasMany(models.Comentario, {
             as: 'comentario',
             foreignKey: 'FkUserId'
-        })
-        Usuario.hasMany(models.Producto, {
-            as: 'producto',
-            foreignKey: 'FkUserId'
-        })
+        })*/
+        
     }
     return Usuario;
 }
