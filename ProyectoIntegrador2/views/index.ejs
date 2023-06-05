@@ -26,7 +26,7 @@
 						<article class="product-box_data">
 							<h2><%= productos[i].nombre %></h2>
 							<p><%= productos[i].descripcion %></p>
-							<p>Publicado por: <strong><a href="/users/profile/<%=productos[i].FkUserId.id%>"></a><%-productos[i].FkUserId.username%></strong></p>
+							<p>Publicado por: <strong><a href="/users/profile/<%=productos[i].FkUser.id%>"></a><%-productos[i].FkUser.username%></strong></p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
@@ -53,6 +53,7 @@
 						<article class="product-box_data">
 							<h2><%= productos[i].nombre %></h2>
 							<p><%= productos[i].descripcion %></p>
+							<p>Publicado por: <strong><a href="/users/profile/<%=productos[i].FkUser.id%>"></a><%-productos[i].FkUser.username%></strong></p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>

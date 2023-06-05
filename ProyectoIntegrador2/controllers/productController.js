@@ -5,11 +5,24 @@ const op = db.Sequelize.Op
 const productController = {
 
     product: function(req, res) {
-        return res.render('product', {product: data.productos[0], comentarios: data.comentarios});
+      return res.render('product', {product: data.productos[0], comentarios: data.comentarios});
+      /*let id = req.params.id;
+        producto.findByPk(id,{include: [{association: 'comentario', include: [{association:'FkUser'}]},{ association: 'FkUser'}]})
+        .then(function (data) {
+          if(data){
+            return res.render('product', {product: data, comentarios: data.texto})
+          }
+          else{
+            return res.render('product', {product: data, comentarios: 'No hay comentarios'})
+          }    
+        })
+        .catch(function (err) {console.log(err);})*/
       },
+
     productAdd: function(req, res) {
         return res.render('product-add', {usuario: data.usuario});
       },
+
     searchResults: function(req, res) {
     Producto.findAll({
       attributes: ["id", "nombre", "descripcion", "foto", "createdAt", "updatedAt", "deletedAt", "FKUserId" ],
