@@ -10,9 +10,9 @@ const indexController = {
           })
           
           .then(function(data) {
-              console.log(data);
-             // return res.render('index', {usuario: data.usuario, productos: data})
-             res.send(data)
+            console.log(data[0].foto);
+            return res.render('index', {productos: data})
+          
               
           })
           .catch(function (err) {
