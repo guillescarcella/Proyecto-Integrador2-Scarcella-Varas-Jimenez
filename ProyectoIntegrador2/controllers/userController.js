@@ -1,6 +1,7 @@
 const data = require('../data/data')
 const db = require('../database/models')
 const bcrypt = require('bcryptjs');
+const { on } = require('../app');
 
 const userController = {
   create: function (req, res) {
@@ -79,6 +80,20 @@ const userController = {
     .then(function(usuario){
       if (usuario == null) {
         errors.message = "El mail no existe";
+        res.locals.errors = errors
+        return res.render('login');
+      }
+      if (bcrypt.compareSync (req.body.pass, usuario.contra)) {
+        res.locals.usuario = usuario
+        req.session.usuario = usuario
+
+        if (req.body.recordarme == 'si'){
+          res.cookie('id', usuario.id,{maxAge: 1000 * 60 * 5});
+        }
+        res.redirect('/')
+      }
+      else {
+        errors.message = "La contraseña es incorrecta";
         res.locals.errors = errors
         return res.render('login');
       }

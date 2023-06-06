@@ -18,8 +18,10 @@ const productController = {
         })
         .catch(function (err) {console.log(err);})*/
       },
-
     productAdd: function(req, res) {
+      if (req.session.usuario == undefined) {
+        return res.redirect ('/users/login')
+      }
         return res.render('product-add', {usuario: data.usuario});
       },
 

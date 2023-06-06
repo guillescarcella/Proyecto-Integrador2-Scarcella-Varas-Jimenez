@@ -1,7 +1,12 @@
 <%- include('./partials/head.ejs') %>
 <body>
 	<!-- Header -->
-	<%- include('./partials/headerIndex.ejs') %>
+	<% if (locals.usuario){%>
+		<%- include('./partials/headerLogueado.ejs') %>
+	<%} else {%>
+		<%- include('./partials/headerIndex.ejs') %>
+	<%}%>
+	
 	<!-- /Header -->
 	
 	<!-- Banner -->
