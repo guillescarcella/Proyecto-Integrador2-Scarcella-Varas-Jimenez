@@ -109,6 +109,11 @@ const userController = {
     return res.render('register');
   },
   //hay que probar que funcione
+  logout: function(req, res){
+    res.clearCookie('id')
+    req.session.destroy()
+    res.redirect('/users/login');
+  }
 
 }
 module.exports = userController
