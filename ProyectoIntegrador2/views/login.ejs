@@ -10,7 +10,12 @@
 			</div>
 			
 			<!-- Formulario -->
-			<form action="/users/profile" method="GET" class="formulario">
+			<form action="/users/sesion" method="POST" class="formulario">
+				<% if (locals.errors){ %>
+					<p class="error">
+						<%= locals.errors.message %>
+					</p>
+				<% } %>
 				<div>
 					<label for="mail" class="form-label"></label>
 					<input type="email" name="mail" value="" placeholder="Email*" class="form-input">

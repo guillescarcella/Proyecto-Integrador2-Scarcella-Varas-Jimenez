@@ -18,6 +18,8 @@ router.get('/register', userController.register);
 
 router.get('/login', userController.login );
 
+router.post('/sesion', userController.sesion );
+
 router.get('/profile/:id?', userController.profile);
 
 router.get('/profile-edit', userController.profileEdit );

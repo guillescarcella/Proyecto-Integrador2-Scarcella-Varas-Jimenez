@@ -23,7 +23,7 @@ const userController = {
           res.locals.errors = errors
           return res.render('register');
         } 
-        
+      
         if (usuario == null) {
           db.Usuario.create({
             email: req.body.mail,
@@ -69,6 +69,22 @@ const userController = {
     //return res.render('profile', { usuario: data.usuario, productos: data.productos });
 
   },
+  sesion: function(req, res){
+    let errors = {}
+
+    db.Usuario.findOne({
+      where: {
+        email: req.body.mail
+    }})
+    .then(function(usuario){
+      if (usuario == null) {
+        errors.message = "El mail no existe";
+        res.locals.errors = errors
+        return res.render('login');
+      }
+    })
+  },
+
 
   profileEdit: function (req, res) {
     return res.render('profile-edit', { usuario: data.usuario });
