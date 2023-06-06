@@ -21,7 +21,7 @@
 				<section class="product-box">
 					<a href="/products/product/<%=productos[i]%>">
 						<figure class="product-box_image">
-							<img src="<%= productos[i].foto %>" alt="<%= productos[i].nombre%>">
+							<img src="/images/products/<%= productos[i].foto %>" alt="<%= productos[i].nombre%>">
 						</figure>
 						<article class="product-box_data">
 							<h2><%= productos[i].nombre %></h2>
@@ -48,12 +48,12 @@
 				<section class="product-box">
 					<a href="/products/product/<%=productos[i]%>">
 						<figure class="product-box_image">
-							<img src="<%= productos[i].foto %>" alt="<%= productos[i].nombre%>">
+							<img src="/images/products/<%= productos[i].foto %>" alt="<%= productos[i].nombre%>">
 						</figure>
 						<article class="product-box_data">
 							<h2><%= productos[i].nombre %></h2>
 							<p><%= productos[i].descripcion %></p>
-							<p>Publicado por: <strong><a href="/users/profile/<%=productos[i].FkUser.id%>"></a><%-productos[i].FkUser.username%></strong></p>
+							<p>Publicado por: <strong><a href="/users/profile/"></a><%-productos[i].FkUser.username%></strong></p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>

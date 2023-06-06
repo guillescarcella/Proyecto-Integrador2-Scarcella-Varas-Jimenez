@@ -14,7 +14,7 @@ const userController = {
     })
       .then(function (usuario) {
         if (req.body.pass.length<3) {
-          errors.message = "La contraseña es incorrecta";
+          errors.message = "La contraseña debe tener al menos 3 caracteres";
           res.locals.errors = errors
           return res.render('register');
         }
@@ -55,7 +55,19 @@ const userController = {
   },
 
   profile: function (req, res) {
-    return res.render('profile', { usuario: data.usuario, productos: data.productos });
+    let id = req.params.id
+        usuario.findByPk(id, 
+            {include: [{association: 'comentario'},{association: 'producto'}]}
+        )
+        .then(function(data){
+          console.log(data)
+          console.log(data.producto)
+            //return res.render('profile', {usuario: data, productos: data.producto, log: false})
+            //return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios, nombreUsuario: data.username})
+        })
+        .catch(function(err){console.log(err);}) 
+    //return res.render('profile', { usuario: data.usuario, productos: data.productos });
+
   },
 
   profileEdit: function (req, res) {
