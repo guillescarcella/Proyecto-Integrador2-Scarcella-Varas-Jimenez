@@ -5,7 +5,22 @@ const op = db.Sequelize.Op
 const productController = {
 
     product: function(req, res) {
-      return res.render('product', {product: data.productos[0], comentarios: data.comentarios});
+      db.Producto.findOne({
+        include:{
+          all:true,
+          nested: true
+        },
+        where:{
+          id: req.params.id
+        }
+      })
+      .then((product) => {
+        res.render ('product',
+        {product: data.productos, comentarios: data.comentarios
+          });
+     
+      }) },
+      /*return res.render('product', {product: data.productos[0], comentarios: data.comentarios});*/
       /*let id = req.params.id;
         producto.findByPk(id,{include: [{association: 'comentario', include: [{association:'FkUser'}]},{ association: 'FkUser'}]})
         .then(function (data) {
@@ -17,7 +32,7 @@ const productController = {
           }    
         })
         .catch(function (err) {console.log(err);})*/
-      },
+     
     productAdd: function(req, res) {
       db.Producto.create({
         nombre: req.body.nombre,
