@@ -19,10 +19,16 @@ const productController = {
         .catch(function (err) {console.log(err);})*/
       },
     productAdd: function(req, res) {
+      db.Producto.create({
+        nombre: req.body.nombre,
+        descripcion: req.body.descripcion,
+        foto: req.file.fieldname
+       
+      })
+      .then((productoAgregado) => res.redirect('/products/product-add/' + productoAgregado.id))
       if (req.session.usuario == undefined) {
         return res.redirect ('/users/login')
-      }
-        return res.render('product-add', {usuario: data.usuario});
+      } 
       },
 
     searchResults: function(req, res) {
