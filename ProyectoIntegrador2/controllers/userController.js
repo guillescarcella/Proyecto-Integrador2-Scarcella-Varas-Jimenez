@@ -52,6 +52,9 @@ const userController = {
   },
 
   login: function (req, res) {
+    if (req.session.usuario != undefined) {
+      return res.redirect ('/')
+    }
     return res.render('login');
   },
 
