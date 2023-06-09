@@ -60,8 +60,10 @@ const userController = {
 
   profile: function (req, res) {
         let id = req.params.id
-        db.Usuario.findByPk(id, 
-            {include: [{association: 'comentario'},{association: 'producto'}]}
+        db.Usuario.findByPk(
+          id, {
+            order: [['createdAt', 'DESC']],
+            include: [{association: 'comentario'},{association: 'producto'}]}
         )
         .then(function(data){
           
