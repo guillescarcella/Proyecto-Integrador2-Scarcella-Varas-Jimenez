@@ -24,9 +24,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 (app.use(session({secret:'proyecto',resave: false, saveUninitialized:true})))
 app.use(function(req, res, next) {
-  if (req.session.usuario != undefined) {
-    res.locals.usuario = req.session.usuario;
-  }
+  
+  res.locals.usuario = req.session.usuario;
+  
   return next();
 });
 app.use(function(req, res, next) {

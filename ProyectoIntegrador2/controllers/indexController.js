@@ -4,7 +4,7 @@ const indexController = {
     
   index: function (req, res) {
         Productos.findAll({
-          limit: 5,
+          
           order: [['createdAt', 'DESC']],
           include: [{association:'comentario'},{association: 'FkUser'}]
           })

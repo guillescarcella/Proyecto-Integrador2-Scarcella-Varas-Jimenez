@@ -59,18 +59,16 @@ const userController = {
   },
 
   profile: function (req, res) {
-    let id = req.params.id
-        usuario.findByPk(id, 
+        let id = req.params.id
+        db.Usuario.findByPk(id, 
             {include: [{association: 'comentario'},{association: 'producto'}]}
         )
         .then(function(data){
-          console.log(data)
-          console.log(data.producto)
-            //return res.render('profile', {usuario: data, productos: data.producto, log: false})
-            //return res.render('profile', {foto: data.foto_de_perfil, mail: data.email, perfil: data.productos, comentarios: data.comentarios, nombreUsuario: data.username})
+          
+          return res.render('profile', {user: data, productos: data.producto})
         })
         .catch(function(err){console.log(err);}) 
-    //return res.render('profile', { usuario: data.usuario, productos: data.productos });
+    
 
   },
   sesion: function(req, res){

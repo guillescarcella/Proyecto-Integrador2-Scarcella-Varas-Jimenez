@@ -15,14 +15,11 @@ const productController = {
         }
       })
       .then((product) => {
-        res.render ('product',
-        {product: data.productos, comentarios: data.comentarios
+        res.render ('product', {product: data.productos, comentarios: data.comentarios
           });
      
       }) },
-      /*return res.render('product', {product: data.productos[0], comentarios: data.comentarios});*/
-      /*let id = req.params.id;
-        producto.findByPk(id,{include: [{association: 'comentario', include: [{association:'FkUser'}]},{ association: 'FkUser'}]})
+      /*db.Producto.findByPk(id,{include: [{association: 'comentario', include: [{association:'FkUser'}]},{ association: 'FkUser'}]})
         .then(function (data) {
           if(data){
             return res.render('product', {product: data, comentarios: data.texto})
@@ -31,7 +28,7 @@ const productController = {
             return res.render('product', {product: data, comentarios: 'No hay comentarios'})
           }    
         })
-        .catch(function (err) {console.log(err);})*/
+        .catch(function (err) {console.log(err);}),*/
      
     productAdd: function(req, res) {
       db.Producto.create({
