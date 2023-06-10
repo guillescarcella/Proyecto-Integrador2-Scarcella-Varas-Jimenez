@@ -10,24 +10,25 @@
 			<h2 class="products-title"><%= product.nombre %></h2> 
 			<p class="product-detail-description">
 				<a href="/products/product-add">Editar</a>
+				<a href="/products/delete/<%= product.id %>">Borrar</a>
 			</p>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%= product.imagen %>" alt="" class="product-detail-img">
+					<img src="/images/products/<%= product.foto %>" alt="" class="product-detail-img">
 					<p class="product-detail-description"> <%= product.descripcion %> </p>
 						
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for ( let i = 0; i < comentarios.length; i++){ %>	
+						<% for ( let i = 0; i < product.comentario.length; i++){ %>	
 						<article>
-							<img src="<%= comentarios[i].imagen %>" alt="">
+							<img src="/images/users/<%= product.comentario[i].FkUser.foto%>" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/profile"><%= comentarios[i].usuario  %> </a> </strong>
-								 <%= comentarios[i].comentario %>
+								<strong> <a href="/users/profile"><%= product.comentario[i].FkUser.username  %> </a> </strong>
+								 <%= product.comentario[i].texto %>
 							</p>
 							</div>
 						</article>

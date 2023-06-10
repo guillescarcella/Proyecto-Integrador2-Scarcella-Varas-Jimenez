@@ -8,14 +8,16 @@ const productController = {
       db.Producto.findOne({
         include:{
           all:true,
-          nested: true
+          nested: true 
         },
         where:{
           id: req.params.id
         }
       })
-      .then((product) => {
-        res.render ('product', {product: data.productos, comentarios: data.comentarios
+      .then((product) => { 
+        
+        /*return res.send (product.comentario)*/
+        res.render ('product', {product: product
           });
      
       }) },
@@ -31,16 +33,26 @@ const productController = {
         .catch(function (err) {console.log(err);}),*/
      
     productAdd: function(req, res) {
-      db.Producto.create({
-        nombre: req.body.nombre,
-        descripcion: req.body.descripcion,
-        foto: req.file.fieldname
-       
-      })
-      .then((productoAgregado) => res.redirect('/products/product-add/' + productoAgregado.id))
       if (req.session.usuario == undefined) {
         return res.redirect ('/users/login')
-      } 
+      } else { 
+        console.log(req.file)
+        let product = {
+          nombre: req.body.nombre,
+          descripcion: req.body.descripcion,
+          foto: req.file.filename,
+          FkUserId: req.session.usuario.id
+        } 
+        console.log(product)
+
+      db.Producto.create(product)
+
+      .then((productoAgregado) => res.redirect('/products/product/' + productoAgregado.id))
+     }
+      },
+
+      add: function(req,res){
+        res.render("product-add")
       },
 
     searchResults: function(req, res) {
@@ -69,6 +81,13 @@ const productController = {
 
        
       },
+  
+      delete: function(req, res){
+        Producto.destroy({where:{id:req.params.id}})
+        .then(function(){
+          return res.redirect("/users/profile/" + res.locals.usuario.id)
+        })
+      }
 
 
 
