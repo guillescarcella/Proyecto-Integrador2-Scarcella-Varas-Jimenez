@@ -22,23 +22,36 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
+						<% if (comentarios.length=0) { %>
+							<h2>No hay comentarios</h2>
+						<% } else { %>
+						 
 						<% for ( let i = 0; i < product.comentario.length; i++){ %>	
 						<article>
 							<img src="/images/users/<%= product.comentario[i].FkUser.foto%>" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/profile"><%= product.comentario[i].FkUser.username  %> </a> </strong>
+								<strong> <a href="/users/profile/<%= product.comentario[i].FkUser.id %>"><%= product.comentario[i].FkUser.username%> </a> </strong>
 								 <%= product.comentario[i].texto %>
 							</p>
 							</div>
 						</article>
-					<% } %>
-
-					</section>
-					<form class="form" action="/products" method="get">
+					<% }} %>
+					<form class="form" action="/products/product/<%= product.id %>" method="post">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
+
+					<!-- if... HAY QUE DEFINIR COMO HACER PARA AGREGAR EL COMENTARIO
+						<form class="form" action="/products/product/<%= product.id %>" method="post">
+							<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
+					else:
+						<h2>Debe iniciar sesion para agregar comentarios</h2>
+					-->
+					</section>
+					
 					<hr>
 				</div>
 			</div>

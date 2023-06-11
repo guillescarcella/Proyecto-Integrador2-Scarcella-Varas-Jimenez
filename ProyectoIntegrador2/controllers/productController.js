@@ -4,33 +4,15 @@ const Producto = db.Producto
 const op = db.Sequelize.Op
 const productController = {
 
-    product: function(req, res) {
-      db.Producto.findOne({
-        include:{
-          all:true,
-          nested: true 
-        },
-        where:{
-          id: req.params.id
-        }
-      })
-      .then((product) => { 
-        
-        /*return res.send (product.comentario)*/
-        res.render ('product', {product: product
-          });
-     
-      }) },
-      /*db.Producto.findByPk(id,{include: [{association: 'comentario', include: [{association:'FkUser'}]},{ association: 'FkUser'}]})
+    product: function(req, res) { 
+      let id = req.params.id   
+      db.Producto.findByPk(id,
+        {include: [{association: 'comentario', include: [{association:'FkUser'}]},{ association: 'FkUser'}]})
         .then(function (data) {
-          if(data){
-            return res.render('product', {product: data, comentarios: data.texto})
-          }
-          else{
-            return res.render('product', {product: data, comentarios: 'No hay comentarios'})
-          }    
+          return res.render('product', {product: data, comentarios: data.comentario})  
         })
-        .catch(function (err) {console.log(err);}),*/
+        .catch(function (err) {console.log(err);})
+       },
      
     productAdd: function(req, res) {
       if (req.session.usuario == undefined) {
