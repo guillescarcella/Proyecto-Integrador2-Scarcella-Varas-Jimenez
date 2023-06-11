@@ -75,11 +75,7 @@ const productController = {
       })
       
 
-    })
-
-
-
-       
+    })   
       },
   
       delete: function(req, res){
@@ -87,6 +83,33 @@ const productController = {
         .then(function(){
           return res.redirect("/users/profile/" + res.locals.usuario.id)
         })
+      },
+
+      edit: function (req,res){
+        Producto.findByPk(req.params.id)
+        .then (product => {
+          res.render ("product-edit",{editado: product})
+        })
+      },
+      update: function (req, res){if (req.session.usuario == undefined) {
+        return res.redirect ('/users/login')
+      } else { 
+        console.log(req.file)
+        let editarProd = {
+          nombre: req.body.nombre,
+          descripcion: req.body.descripcion,
+          foto: req.file.filename,
+          FkUserId: req.session.usuario.id
+        } 
+        
+
+      db.Producto.update(editarProd, {where:{id:req.params.id}})
+      .then(function() {
+      return res.redirect ('/products/product/' + req.params.id)
+    })
+     }
+        
+
       }
 
 

@@ -1,0 +1,39 @@
+<%- include('./partials/head.ejs') %>
+
+<body>
+	<!-- Header -->
+	<%- include('./partials/headerLogueado.ejs') %>
+	<!-- /Header -->
+
+
+			<div class="col-12">
+				<h2 class="products-title">Editar Producto</h2>
+			</div>
+			<!-- Formulario -->
+			<form action="/products/update/<%= editado.id %>" method="post" class="formulario" enctype="multipart/form-data">
+				<div>
+					<label for="imagen" class="form-label">Imagen:</label>
+					<input type="file" name="imagen" class="form-input" value="<%=editado.foto%>"> 
+				</div>
+				<div>
+					<label for="nombre" class="form-label"></label>
+					<input type="text" name="nombre"  placeholder="Nombre del producto*" class="form-input" value="<%=editado.nombre%>">
+				</div>
+				<div>
+					<label for="descripcion" class="form-label"></label>
+					<input type="text" name="descripcion" placeholder="Descripción*" class="form-input" value="<%=editado.descripcion%>">
+				</div>
+				<div>
+					<button type="submit" class="form-boton">Agregar Producto </button>
+				</div>
+                <input type="hidden" name="FkUserId" value="<%=editado.FkUserId%>">
+                <input type="hideen" name="createdAt" value="<%=editado.createdAt%>" >
+
+			</form>
+
+	<!-- footer -->
+	<%- include('./partials/footer.ejs') -%>
+	<!-- /footer -->
+</body>
+
+</html>
