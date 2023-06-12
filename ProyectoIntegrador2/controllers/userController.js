@@ -30,7 +30,7 @@ const userController = {
             email: req.body.mail,
             username: req.body.user,
             contra: bcrypt.hashSync (req.body.pass, 10), 
-            foto: "req.file.fieldname", //preguntar multer// 
+            foto: req.body.foto, 
             fecha: req.body.fecha,
             dni: req.body.documento,
           })

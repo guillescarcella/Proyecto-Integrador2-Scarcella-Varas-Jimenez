@@ -22,6 +22,7 @@ const productController = {
       })
       .then(()=> res.redirect('/products/product/' +req.params.id))
       .catch(function (err) {console.log(err);})
+      
     },
      
     productAdd: function(req, res) {
@@ -67,25 +68,29 @@ const productController = {
         //return res.send (productosDescripcion) 
         return res.render('search-results', {productosNombre: productosNombre, productosDescripcion: productosDescripcion});
       })
+    })
+  },
+
+
+  delete: function(req, res) {
+    Producto.findOne({
+      where: {
+        id: req.params.id,
+        FKUserId: req.session.usuario.id
+      }
+    })
+    .then(function(producto) {
+      if (producto) {
+        Producto.destroy({
+          where: { id: req.params.id }
+        })
+        .then(function() {
+          return res.redirect("/users/profile/" + req.session.usuario.id);
+        });
+      }})
+      },
       
-
-    })   
-      },
-  
-      delete: function(req, res){
-        Producto.findByPk (req.params.id)
-        .then (function(data){
-          if (req.session.usuario.id == data.id){
-            Producto.destroy({where:{id:req.params.id}})
-        .then(function(){
-          return res.redirect("/users/profile/" + res.locals.usuario.id)
-        })
-          }
-        })
-        
-      },
-
-      edit: function (req,res){
+      edit: function (req, res){
         Producto.findByPk(req.params.id)
         .then (product => {
           res.render ("product-edit",{editado: product})
