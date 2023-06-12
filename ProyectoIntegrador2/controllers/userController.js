@@ -30,7 +30,6 @@ const userController = {
             email: req.body.mail,
             username: req.body.user,
             contra: bcrypt.hashSync (req.body.pass, 10), 
-            foto: req.body.foto, 
             fecha: req.body.fecha,
             dni: req.body.documento,
           })
@@ -50,7 +49,9 @@ const userController = {
       })
 
   },
-
+  register: function (req, res) {
+    return res.render('register');
+  },
   login: function (req, res) {
     if (req.session.usuario != undefined) {
       return res.redirect ('/')
@@ -108,9 +109,7 @@ const userController = {
     return res.render('profile-edit', { usuario: data.usuario });
   },
 
-  register: function (req, res) {
-    return res.render('register');
-  },
+
   //hay que probar que funcione
   logout: function(req, res){
     res.clearCookie('id')
