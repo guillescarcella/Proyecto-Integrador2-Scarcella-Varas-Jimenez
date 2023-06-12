@@ -39,18 +39,20 @@ const productController = {
 
     searchResults: function(req, res) {
     Producto.findAll({
+      include: [{association: 'FkUser'}],
       attributes: ["id", "nombre", "descripcion", "foto", "createdAt", "updatedAt", "deletedAt", "FKUserId" ],
       where: [{nombre: {[op.like]: "%"+req.query.search+"%"}}],
       order: [['createdAt', 'DESC']]
-     /* include: [{association: 'comentario'},{association: 'usuario'}] */
+     
     })
 
     .then(function(productosNombre){ 
       Producto.findAll({ 
+        include: [{association: 'FkUser'}],
         attributes: ["id", "nombre", "descripcion", "foto", "createdAt", "updatedAt", "deletedAt", "FKUserId" ],
         where: [{descripcion: {[op.like]: "%"+req.query.search+"%"}}],
-        order: [['createdAt', 'DESC']]
-       /* include: [{association: 'comentario'},{association: 'usuario'}] */
+        order: [['createdAt', 'DESC']],
+       /* include: [{association: 'comentario'},{association: 'FkUser'}] */
       }).then (function(productosDescripcion){
         //return res.send (productosDescripcion) 
         return res.render('search-results', {productosNombre: productosNombre, productosDescripcion: productosDescripcion});
