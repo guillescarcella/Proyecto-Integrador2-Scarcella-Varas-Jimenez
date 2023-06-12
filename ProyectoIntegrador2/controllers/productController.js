@@ -46,7 +46,7 @@ const productController = {
     })
 
     .then(function(productosNombre){ 
-      Producto.findAll({
+      Producto.findAll({ 
         attributes: ["id", "nombre", "descripcion", "foto", "createdAt", "updatedAt", "deletedAt", "FKUserId" ],
         where: [{descripcion: {[op.like]: "%"+req.query.search+"%"}}],
         order: [['createdAt', 'DESC']]
