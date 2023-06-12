@@ -13,6 +13,16 @@ const productController = {
         })
         .catch(function (err) {console.log(err);})
        },
+    
+    agregarComentario: function(req,res){
+      db.Comentario.create({
+        FkProductId: req.params.id,
+        FkUserId: req.session.usuario.id,
+        texto:req.body.texto
+      })
+      .then(()=> res.redirect('/products/product/' +req.params.id))
+      .catch(function (err) {console.log(err);})
+    },
      
     productAdd: function(req, res) {
       if (req.session.usuario == undefined) {
@@ -92,12 +102,7 @@ const productController = {
       return res.redirect ('/products/product/' + req.params.id)
     })
      }
-        
-
-      }
-
-
-
+      },
 
 }
 module.exports= productController
