@@ -1,9 +1,15 @@
 <%- include('./partials/head.ejs') %>
 <body>
 	<!-- Header -->
+	<% if (locals.usuario){%>
+		<%- include('./partials/headerLogueado.ejs') %>
+	<%} else {%>
+		<%- include('./partials/headerIndex.ejs') %>
+	<%}%>
 	
 	<!-- /Header -->
-	<%- include('./partials/headerIndex.ejs') %>
+	
+
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">

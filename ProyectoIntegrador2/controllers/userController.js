@@ -1,7 +1,7 @@
 const data = require('../data/data')
 const db = require('../database/models')
 const bcrypt = require('bcryptjs');
-const { on } = require('../app');
+
 
 const userController = {
   create: function (req, res) {

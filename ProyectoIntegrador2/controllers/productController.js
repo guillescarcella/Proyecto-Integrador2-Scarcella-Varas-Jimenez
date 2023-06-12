@@ -28,18 +28,18 @@ const productController = {
       if (req.session.usuario == undefined) {
         return res.redirect ('/users/login')
       } else { 
-        console.log(req.file)
+        
         let product = {
           nombre: req.body.nombre,
           descripcion: req.body.descripcion,
-          foto: req.file.filename,
+          foto: req.body.imagen,
           FkUserId: req.session.usuario.id
         } 
         console.log(product)
 
-      db.Producto.create(product)
-
-      .then((productoAgregado) => res.redirect('/products/product/' + productoAgregado.id))
+        db.Producto.create(product)
+       
+      .then((productoAgregado) => {res.redirect('/products/product/' + productoAgregado.id)})
      }
       },
 
@@ -88,11 +88,11 @@ const productController = {
       update: function (req, res){if (req.session.usuario == undefined) {
         return res.redirect ('/users/login')
       } else { 
-        console.log(req.file)
+        
         let editarProd = {
           nombre: req.body.nombre,
           descripcion: req.body.descripcion,
-          foto: req.file.filename,
+          foto: req.body.imagen,
           FkUserId: req.session.usuario.id
         } 
         
