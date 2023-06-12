@@ -28,7 +28,7 @@ const productController = {
       if (req.session.usuario == undefined) {
         return res.redirect ('/users/login')
       } else { 
-        
+
         let product = {
           nombre: req.body.nombre,
           descripcion: req.body.descripcion,
@@ -73,10 +73,16 @@ const productController = {
       },
   
       delete: function(req, res){
-        Producto.destroy({where:{id:req.params.id}})
+        Producto.findByPk (req.params.id)
+        .then (function(data){
+          if (req.session.usuario.id == data.id){
+            Producto.destroy({where:{id:req.params.id}})
         .then(function(){
           return res.redirect("/users/profile/" + res.locals.usuario.id)
         })
+          }
+        })
+        
       },
 
       edit: function (req,res){
