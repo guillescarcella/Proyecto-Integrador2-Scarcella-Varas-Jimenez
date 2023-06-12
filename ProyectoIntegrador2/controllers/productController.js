@@ -73,6 +73,9 @@ const productController = {
 
 
   delete: function(req, res) {
+    if (req.session.usuario == undefined) {
+      return res.redirect ('/users/login')
+    } else {
     Producto.findOne({
       where: {
         id: req.params.id,
@@ -89,13 +92,16 @@ const productController = {
         });
       }
     });
+  }
  },
       
-      edit: function (req, res){
+      edit: function (req, res){ if (req.session.usuario == undefined) {
+        return res.redirect ('/users/login')
+      } else {
         Producto.findByPk(req.params.id)
         .then (product => {
           res.render ("product-edit",{editado: product})
-        })
+        })}
       },
       update: function (req, res){if (req.session.usuario == undefined) {
         return res.redirect ('/users/login')
