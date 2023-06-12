@@ -76,7 +76,7 @@ const productController = {
     Producto.findOne({
       where: {
         id: req.params.id,
-        FKUserId: req.session.usuario.id
+        FkUserId: req.session.usuario.id
       }
     })
     .then(function(producto) {
@@ -87,8 +87,9 @@ const productController = {
         .then(function() {
           return res.redirect("/users/profile/" + req.session.usuario.id);
         });
-      }})
-      },
+      }
+    });
+ },
       
       edit: function (req, res){
         Producto.findByPk(req.params.id)
