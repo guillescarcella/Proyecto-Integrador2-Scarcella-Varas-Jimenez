@@ -17,12 +17,15 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"> <%= user.nombre %>
-						<a href="/users/profile-edit">
+						<% if (usuario) {%>	
+						<% if (usuario.id == user.id) {%>
+						<a href="/users/profile-edit/<%= user.id %>">
 							<i class="fas fa-cog"></i>
 						</a> </h1>
-	
-					
+					<% }%>
+					<% }%>
 					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+
 				</div>
 				<div>
 					<ul class="">
@@ -38,11 +41,19 @@
 	</section>
 	<!-- /Datos del usuario -->
 
-	<!-- Mis productos -->
+	<!-- Mis productos o ver productos de otro perfil-->
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
+				<% if (usuario) {%>	
+					<% if (usuario.id == user.id) {%> 
 				<h2 class="products-title">Mis productos</h2>
+					<%} else{ %>
+				<h2 class="products-title">Productos de <%= user.username %></h2>
+				<% }%>
+					<%} else{ %>
+						<h2 class="products-title">Productos de <%= user.username %></h2>
+					<% }%>
 			</div>
 			<!-- Show mis productos -->
 			<% for (let i = 0; i < productos.length; i++){ %>

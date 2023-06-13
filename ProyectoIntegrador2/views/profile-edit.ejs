@@ -2,7 +2,11 @@
 
 <body>
 	<!-- Header -->
-	<%- include('./partials/headerLogueado.ejs') %>
+	<% if (usuario) {%>
+		<%- include('./partials/headerLogueado.ejs') %>
+	<%} else{ %>
+		<%- include('./partials/headerIndex.ejs') %>
+	<% }%>
 	<!-- /Header -->
 
 	<!-- Novedades -->

@@ -109,7 +109,7 @@ const userController = {
     if (req.session.usuario == undefined) {
       return res.redirect ('/users/login')
     } else {
-    return res.render('profile-edit', { usuario: data.usuario });
+       return res.render('profile-edit', { usuario: data.usuario }); // esto hay que arreglarlo
     }
   },
 
