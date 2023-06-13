@@ -37,7 +37,7 @@
 						<% } else { %>
 						<% for ( let i = 0; i < product.comentario.length; i++){ %>	
 						<article>
-							<img src="/images/users/<%= product.comentario[i].FkUser.foto%>" alt="">
+							<img src="<%= product.comentario[i].FkUser.foto%>" alt="">
 							<div class="data">
 								<p class="user">
 								<strong> <a href="/users/profile/<%= product.comentario[i].FkUser.id %>"><%= product.comentario[i].FkUser.username%> </a> </strong>

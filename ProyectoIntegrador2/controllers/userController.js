@@ -32,6 +32,7 @@ const userController = {
             contra: bcrypt.hashSync (req.body.pass, 10), 
             fecha: req.body.fecha,
             dni: req.body.documento,
+            foto: 'foto',
           })
             .then(function () {
               res.redirect('/users/login')

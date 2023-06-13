@@ -4,7 +4,7 @@ const userController = require('../controllers/userController');
 
 
 router.get('/register', userController.register);
-//router.post('/register', userController.create);//
+router.post('/create', userController.create);
 
 router.get('/login', userController.login );
 
