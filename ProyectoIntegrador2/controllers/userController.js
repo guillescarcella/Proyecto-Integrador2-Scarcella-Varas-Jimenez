@@ -114,6 +114,23 @@ const userController = {
     }
   },
 
+  //punto extra --> hay que hacer otra vista? --> ver si funciona!!
+  searchUsuario:function (req, res) {
+    c
+    db.Usuario.findAll({
+      include: [{ association: 'productos' }, { association: 'comentario' }],
+      attributes: ["id", "email", "username", "contra", "foto", "fecha", "dni", "createdAt", "updatedAt", "deletedAt"],
+      where: {[op.or]: [ 
+        { username: { [op.like]: "%" + req.query.search + "%" } },
+        { email: { [op.like]: "%" + req.query.search + "%" } }
+        ]},
+      order: [['createdAt', 'DESC']],
+      })
+      .then(user => {
+          if (user) {
+            res.render('search-usuario', {user,busqueda});
+          }})
+},
 
   //hay que probar que funcione
   logout: function(req, res){

@@ -16,4 +16,6 @@ router.get('/profile-edit/:id', userController.profileEdit );
 
 router.post('/logout', userController.logout);
 
+router.get('/search-usuario', userController.searchUsuario)
+
 module.exports = router;

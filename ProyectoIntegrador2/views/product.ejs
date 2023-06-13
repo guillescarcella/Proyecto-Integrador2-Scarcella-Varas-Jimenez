@@ -46,10 +46,16 @@
 							</div>
 						</article>
 					<% }} %>
+
+					<% if (usuario != null) {%>
 					<form class="form" action="/products/product/<%= product.id%>" method="post">
 						<input class="form-input" name="texto" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
+					<%} else{%>
+						<h1 >Debe <strong><a class="login-boton" href="/users/login">iniciar sesion</a></strong> para agregar un comentario</h1>
+						
+						<%}%>
 
 					</section>
 					

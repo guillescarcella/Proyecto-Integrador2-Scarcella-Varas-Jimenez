@@ -389,6 +389,13 @@ hr {
   margin: 0;
 }
 
+.login-boton{
+  background-color: rgb(244, 15, 157);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 5px;
+}
+
 .buy-now-button {
   background-color: rgb(244, 15, 157);
   font-size: 1.6em;
