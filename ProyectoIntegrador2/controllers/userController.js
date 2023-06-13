@@ -106,7 +106,11 @@ const userController = {
 
 
   profileEdit: function (req, res) {
+    if (req.session.usuario == undefined) {
+      return res.redirect ('/users/login')
+    } else {
     return res.render('profile-edit', { usuario: data.usuario });
+    }
   },
 
 

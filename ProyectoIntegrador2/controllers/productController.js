@@ -15,16 +15,19 @@ const productController = {
        },
     
     agregarComentario: function(req,res){
-      db.Comentario.create({
-        FkProductId: req.params.id,
+      if (req.session.usuario == undefined) {
+        return res.redirect ('/users/login')
+      } else {
+      let coment = {
+        texto:req.body.texto,
         FkUserId: req.session.usuario.id,
-        texto:req.body.texto
-      })
-      .then(function (data) {
-        return res.redirect(`/products/product/${id}`)
-      })
+        FkProductId: req.params.id
+      }
+      console.log (coment)
+      db.Comentario.create(coment)
+      .then((comentarioAgregado) => { res.redirect('/products/product/' + req.params.id)})
       .catch(function (err) {console.log(err);})
-      
+    }
     },
      
     productAdd: function(req, res) {
