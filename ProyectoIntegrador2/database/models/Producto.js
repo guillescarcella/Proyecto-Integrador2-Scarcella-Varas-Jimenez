@@ -49,9 +49,12 @@ module.exports = function (sequelize, dataTypes ) {
             as: 'FkUser',
             foreignkey:'FkUserId'
         });
-        Producto.hasMany(models.Comentario, {
+        Producto.belongsToMany(models.Comentario, {
             as: 'comentario',
-            foreignKey: 'FKUserId'
+            otherKey: 'FkProductId',
+            through: 'comentarios',
+            foreignKey: 'FkUserId',
+            timestamps: true,
         }) 
     }
     return Producto;
