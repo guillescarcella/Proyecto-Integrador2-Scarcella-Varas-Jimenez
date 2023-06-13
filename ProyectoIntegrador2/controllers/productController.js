@@ -20,7 +20,9 @@ const productController = {
         FkUserId: req.session.usuario.id,
         texto:req.body.texto
       })
-      .then(()=> res.redirect('/products/product/' +req.params.id))
+      .then(function (data) {
+        return res.redirect(`/products/product/${id}`)
+      })
       .catch(function (err) {console.log(err);})
       
     },
