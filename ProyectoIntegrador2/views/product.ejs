@@ -35,13 +35,13 @@
 						<% if (comentarios.length<1) { %>
 							<h2>No hay comentarios</h2>
 						<% } else { %>
-						<% for ( let i = 0; i < product.comentario.length; i++){ %>	
+						<% for ( let i = 0; i < comentarios.length; i++){ %>	
 						<article>
-							<img src="<%= product.comentario[i].FkUser.foto%>" alt="">
+							<img src="<%= comentarios[i].FkUser.foto%>" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/users/profile/<%= product.comentario[i].FkUser.id %>"><%= product.comentario[i].FkUser.username%> </a> </strong>
-								 <%= product.comentario[i].texto %>
+								<strong> <a href="/users/profile/<%= comentarios[i].FkUser.id %>"><%= comentarios[i].FkUser.username%> </a> </strong>
+								 <%= comentarios[i].texto %>
 							</p>
 							</div>
 						</article>

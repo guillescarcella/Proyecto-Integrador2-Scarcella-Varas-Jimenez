@@ -106,17 +106,28 @@ const userController = {
   },
 
 
-  profileEdit: function (req, res) {
+  profileEdit: function (req, res) { //no funciona
     if (req.session.usuario == undefined) {
       return res.redirect ('/users/login')
     } else {
-       return res.render('profile-edit', { usuario: data.usuario }); // esto hay que arreglarlo
+      return res.render('profile-edit', { usuario: data.usuario });
+       /*let editarPerfil={
+        email: req.body.mail,
+        usuario: req.body.user,
+        contra: req.body.pass,
+        fecha: req.body.fecha,
+        dni: req.body.documento
+       }
+       console.log(editarPerfil)
+       db.Usuario.update(editarPerfil, { where: { id: req.params.id } })
+       .then(function () {
+         return res.redirect('/user/profile/' + req.params.id)
+       })*/
     }
   },
 
-  //punto extra --> hay que hacer otra vista? --> ver si funciona!!
+  //punto extra --> hay que hacer otra vista --> no funciona!!
   searchUsuario:function (req, res) {
-    c
     db.Usuario.findAll({
       include: [{ association: 'productos' }, { association: 'comentario' }],
       attributes: ["id", "email", "username", "contra", "foto", "fecha", "dni", "createdAt", "updatedAt", "deletedAt"],

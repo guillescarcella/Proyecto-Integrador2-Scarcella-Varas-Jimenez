@@ -6,10 +6,11 @@ const productController = {
 
   product: function (req, res) {
     let id = req.params.id
-    db.Producto.findByPk(id,
+    Producto.findByPk(id,
       { include: [{ association: 'comentario', include: [{ association: 'FkUser' }] }, { association: 'FkUser' }] })
       .then(function (data) {
-        return res.render('product', { product: data, comentarios: data.comentario })
+        console.log(data.comentario);
+        return res.render('product', {product: data, comentarios: data.comentario })
       })
       .catch(function (err) { console.log(err); })
   },
