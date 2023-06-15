@@ -1,6 +1,8 @@
 const data = require('../data/data')
 const db = require('../database/models')
 const bcrypt = require('bcryptjs');
+const { usuario } = require('../data/data');
+const op = db.Sequelize.Op
 
 
 const userController = {
@@ -148,7 +150,24 @@ const userController = {
     res.clearCookie('id')
     req.session.destroy()
     res.redirect('/users/login');
-  }
+  },
+
+  amigos: function(req, res){
+    res.render('amigos')
+  },
+  friends: function(req, res){
+    db.Usuario.findAll({
+      where: {
+        [op.or]:[
+          { email: { [op.like]: "%" + req.query.search + "%" } },
+          { username: { [op.like]: "%" + req.query.search + "%" } }
+        ]
+      },
+    })
+    .then(function(usuarios){
+      res.render('friends',{usuarios: usuarios})
+    })
+  },
 
 }
 module.exports = userController

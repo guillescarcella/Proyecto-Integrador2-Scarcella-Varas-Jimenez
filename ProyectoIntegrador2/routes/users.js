@@ -18,4 +18,7 @@ router.post('/logout', userController.logout);
 
 router.get('/search-usuario', userController.searchUsuario)
 
+router.get('/amigos', userController.amigos)
+router.get('/friends', userController.friends)
+
 module.exports = router;

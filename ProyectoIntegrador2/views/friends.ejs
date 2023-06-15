@@ -1,0 +1,41 @@
+<%- include('./partials/head.ejs') %>
+<body>
+	<!-- Header -->
+	<% if (locals.usuario){%>
+		<%- include('./partials/headerLogueado.ejs') %>
+	<%} else {%>
+		<%- include('./partials/headerIndex.ejs') %>
+	<%}%>
+	
+	<!-- /Header -->
+	
+	<!-- Banner -->
+	<div class="banner">
+    </div>
+	<!-- /Banner -->
+	
+	<!-- Novedades -->
+	
+	<!-- /Novedades -->
+	<!-- Más comentados -->
+<div class="container"> 
+    <h1> Resultado</h1>
+    <% for(let i = 0; i < usuarios.length; i++ ){%>
+        <h2>
+            <a href="/users/profile/<%= usuarios[i].id %>"> <%= usuarios[i].username%> </a>
+        </h2>  
+  <% } %>
+  <% if (usuarios.length == 0){%>
+        <h2>
+            No se encontraron resultados
+        </h2>
+  <%}%>
+</div>
+	<!-- /Más comentados -->
+
+
+	<!-- footer -->
+	<%- include('./partials/footer.ejs') %>
+	<!-- /footer -->
+</body>	
+</html>

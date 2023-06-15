@@ -1,0 +1,36 @@
+<%- include('./partials/head.ejs') %>
+<body>
+	<!-- Header -->
+	<% if (locals.usuario){%>
+		<%- include('./partials/headerLogueado.ejs') %>
+	<%} else {%>
+		<%- include('./partials/headerIndex.ejs') %>
+	<%}%>
+	
+	<!-- /Header -->
+	
+	<!-- Banner -->
+	<div class="banner">
+    </div>
+	<!-- /Banner -->
+	
+	<!-- Novedades -->
+	
+	<!-- /Novedades -->
+	<!-- Más comentados -->
+<div class="container"> 
+    <h1> Buscar amigos</h1>
+    <form action="/users/friends"> 
+        <input type="text" name="search" placeholder="busca a tus amigos">
+        <input type="submit" value="buscar">
+        
+     </form>
+</div>
+	<!-- /Más comentados -->
+
+
+	<!-- footer -->
+	<%- include('./partials/footer.ejs') %>
+	<!-- /footer -->
+</body>	
+</html>
