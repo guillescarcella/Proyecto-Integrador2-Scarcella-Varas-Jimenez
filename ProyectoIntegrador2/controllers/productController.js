@@ -9,8 +9,7 @@ const productController = {
     Producto.findByPk(id,
       { include: [{ association: 'comentario', include: [{ association: 'FkUser' }] }, { association: 'FkUser' }] })
       .then(function (data) {
-        console.log(data.comentario);
-        return res.render('product', {product: data, comentarios: data.comentario })
+        return res.render('product', {product: data})
       })
       .catch(function (err) { console.log(err); })
   },
