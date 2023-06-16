@@ -108,7 +108,7 @@ const userController = {
   },
 
 
-  profileEdit: function (req, res) { //no funciona
+  profileEdit: function (req, res) { 
     if (req.session.usuario == undefined) {
       return res.redirect ('/users/login')
     } else {
@@ -117,19 +117,7 @@ const userController = {
           res.render("profile-edit", { editar: usuario })
         })
       
-      //return res.render('profile-edit', { usuario: data.usuario });
-       /*let editarPerfil={
-        email: req.body.mail,
-        usuario: req.body.user,
-        contra: req.body.pass,
-        fecha: req.body.fecha,
-        dni: req.body.documento
-       }
-       console.log(editarPerfil)
-       db.Usuario.update(editarPerfil, { where: { id: req.params.id } })
-       .then(function () {
-         return res.redirect('/user/profile/' + req.params.id)
-       })*/
+    
     }
   },
 
@@ -170,7 +158,7 @@ const userController = {
           }})
 },
 
-  //hay que probar que funcione
+ 
   logout: function(req, res){
     res.clearCookie('id')
     req.session.destroy()
