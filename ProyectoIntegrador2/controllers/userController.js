@@ -141,14 +141,14 @@ const userController = {
       let editarUsuario = {
         email: req.body.mail,
         username: req.body.user,
-        contra: bcrypt.hashSync (req.body.pass, 10), 
+        contra: req.body.pass,
         fecha: req.body.fecha,
         dni: req.body.documento 
       }
 
-console.log(editarUsuario)
+      console.log(editarUsuario)
       db.Usuario.update(editarUsuario, { where: { id: req.params.id } })
-        .then(function () {
+        .then(function (userAActulizado) {
           return res.redirect('/users/profile/' + req.params.id)
         })
     }
