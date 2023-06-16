@@ -112,7 +112,12 @@ const userController = {
     if (req.session.usuario == undefined) {
       return res.redirect ('/users/login')
     } else {
-      return res.render('profile-edit', { usuario: data.usuario });
+      db.Usuario.findByPk(req.params.id)
+        .then(usuario => {
+          res.render("profile-edit", { editar: usuario })
+        })
+      
+      //return res.render('profile-edit', { usuario: data.usuario });
        /*let editarPerfil={
         email: req.body.mail,
         usuario: req.body.user,
@@ -128,7 +133,27 @@ const userController = {
     }
   },
 
-  //punto extra --> hay que hacer otra vista --> no funciona!!
+  updateUsuario: function (req, res) {
+    if (req.session.usuario == undefined) {
+      return res.redirect('/users/login')
+    } else {
+
+      let editarUsuario = {
+        email: req.body.mail,
+        username: req.body.user,
+        contra: bcrypt.hashSync (req.body.pass, 10), 
+        fecha: req.body.fecha,
+        dni: req.body.documento 
+      }
+
+console.log(editarUsuario)
+      db.Usuario.update(editarUsuario, { where: { id: req.params.id } })
+        .then(function () {
+          return res.redirect('/users/profile/' + req.params.id)
+        })
+    }
+  },
+  
   searchUsuario:function (req, res) {
     db.Usuario.findAll({
       include: [{ association: 'productos' }, { association: 'comentario' }],

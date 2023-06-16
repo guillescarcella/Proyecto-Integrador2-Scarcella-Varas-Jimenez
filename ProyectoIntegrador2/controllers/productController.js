@@ -1,3 +1,4 @@
+const { comentarios } = require('../data/data')
 const data = require('../data/data')
 const db = require('../database/models')
 const Producto = db.Producto
@@ -18,14 +19,18 @@ const productController = {
     if (req.session.usuario == undefined) {
       return res.redirect('/users/login')
     } else {
-      let coment = {
+      let comment = {
         texto: req.body.texto,
         FkUserId: req.session.usuario.id,
         FkProductId: req.params.id
       }
-      console.log(coment)
-      db.Comentario.create(coment)
-        .then((comentarioAgregado) => { res.redirect('/products/product/' + req.params.id) })
+      db.Comentario.create(comment)
+        //.then((comentarioAgregado) => { res.redirect('/products/product/' + req.params.id) })
+        .then(
+          //res.send(comment), => me trae el comentario pero no aparece en pantalla
+          console.log(comment),
+          res.redirect('/products/product/' + req.params.id)
+        )
         .catch(function (err) { console.log(err); })
     }
   },

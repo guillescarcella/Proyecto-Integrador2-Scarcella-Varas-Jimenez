@@ -13,6 +13,7 @@ router.post('/sesion', userController.sesion );
 router.get('/profile/:id', userController.profile);
 
 router.get('/profile-edit/:id', userController.profileEdit );
+router.post('/updateUsuario/:id', userController.updateUsuario);
 
 router.post('/logout', userController.logout);
 
